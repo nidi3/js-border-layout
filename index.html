@@ -6,44 +6,110 @@
     <link rel="stylesheet" href="src/border.css">
 </head>
 <body>
-<div class="border-layout" style="height: 90vh; width: 90vw; border: 1px solid black">
-    <div class="north draggable" size="50px" min-size="10px" max-size="30%" style="background-color: #88f">
-        <div class="content">
-            This is north<br>ddd
+<style>
+    .north, .south {
+        background-color: #bbb;
+        border: 1px solid black;
+        line-height: 30px;
+    }
 
+    .north span {
+        margin-right: 3em;
+    }
+
+    .west, .east {
+        background-color: #eee;
+        border: 1px solid black;
+    }
+
+    .west .content div {
+        padding-left: 20px;
+    }
+
+</style>
+A grid layout looks like this:
+<div class="border-layout" style="height: 300px; width: 700px">
+    <div class="north resizable" size="20%">
+        <div class="content">
+            North
         </div>
     </div>
-    <div class="west draggable" size="20%" style="background-color: #8f8">
+    <div class="west resizable" size="20%">
         <div class="content">
-            This is west<br>sfffs fsdfass csf fdssdf f sd dsf<br>ss<br>dfd<br>fdf<br>
+            West
         </div>
     </div>
-    <div class="east" style="background-color: #ff8">
+    <div class="east resizable" size="20%">
         <div class="content">
-            This is east
+            East
         </div>
     </div>
-    <div class="south" style="background-color: #f88">
+    <div class="south resizable" size="20%">
         <div class="content">
-            south
+            South
         </div>
     </div>
-    <div class="center" style="background-color: #8ff">
+    <div class="center">
         <div class="content">
-            This is center fl sdföj lkjsfah sh fslkjhdfjlkhds f ksdfjdfs kjhdfs jkahklsjjk fds ljsdf jh fsdlkjhfks
-            ljhs sfj lkasf kflsjdah sf f f sjcjlfsadfkljsh kjhskjh slkjh lkjhds lkjfh lkhfls kdhsf sdjkfdsfdsf
-            slkd fskdhf sjhf sfs adf sjakjs
+            Center
         </div>
     </div>
 </div>
-<style>
-    html {
-        font-size: 200%;
-    }
-</style>
+
+<br>
+It could be used for a IDE style application:
+
+<div class="border-layout" style="height: 200px; width: 700px">
+    <div class="north" size="30px">
+        <div class="content">
+            <span style="font-weight: bold">Demo menu</span>
+            <span>File</span>
+            <span>Edit</span>
+            <span>View</span>
+            <span>Navigate</span>
+            <span>Help</span>
+        </div>
+    </div>
+    <div class="west resizable" size="20%" min-size="30px" max-size="30%">
+        <div class="content">
+            Files
+            <div>
+                js-grid-layout
+                <div>
+                    .idea <br>
+                    src
+                    <div>
+                        border.css <br>
+                        border.js
+                    </div>
+                    .gitignore<br>
+                    index.html<br>
+                    LICENSE<br>
+                    README.md<br>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="east resizable" size="20%" min-size="0px" max-size="50%">
+        <div class="content">
+            A tool menu or something
+        </div>
+    </div>
+    <div class="south" size="30px">
+        <div class="content">
+            some status information
+        </div>
+    </div>
+    <div class="center">
+        <div class="content">
+            <textarea style="width: 100%; height: 100%">A simple text editor</textarea>
+        </div>
+    </div>
+</div>
 <script src="src/border.js"></script>
 <script>
-    var b1 = borderLayout(document.querySelector('.border-layout'));
+    borderLayout(document.querySelectorAll('.border-layout')[0]);
+    borderLayout(document.querySelectorAll('.border-layout')[1]);
 </script>
 </body>
 </html>
