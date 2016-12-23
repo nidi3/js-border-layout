@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Border</title>
+    <link rel="stylesheet" href="border.css">
+</head>
+<body>
+<button onclick="b1.resize({north: 10,south:30,west:300})">resize</button>
+<div id="layout" class="border-layout" style="height: 90vh; width: 90vw; border: 1px solid black">
+    <div class="north draggable" size="50px" min-size="10px" max-size="30%" style="background-color: #88f">
+        <div class="content">
+            This is north<br>ddd
+
+        </div>
+    </div>
+    <div class="west draggable" size="20%" style="background-color: #8f8">
+        <div class="content">
+            This is west<br>sfffs fsdfass csf fdssdf f sd dsf<br>ss<br>dfd<br>fdf<br>
+        </div>
+    </div>
+    <div class="east" style="background-color: #ff8">
+        <div class="content">
+            This is east
+        </div>
+    </div>
+    <div class="south" style="background-color: #f88">
+        <div class="content">
+            south
+        </div>
+    </div>
+    <div class="center" style="background-color: #8ff">
+        <div class="content">
+            <button onclick="b1.maximize('north')">max</button>
+            <button onclick="b1.minimize('north')">min</button>
+            <button onclick="b1.hide('north')">hide</button>
+            This is center fl sdföj lkjsfah sh fslkjhdfjlkhds f ksdfjdfs kjhdfs jkahklsjjk fds ljsdf jh fsdlkjhfks
+            <div id="layout2" class="border-layout" style="height: 40vh; width: 40vw; border: 1px solid black">
+                <div class="north draggable" size="50px" min-size="10px" max-size="30%" style="background-color: #88f">
+                    <div class="content">
+                        This is north<br>ddd
+                    </div>
+                </div>
+                <div class="west draggable" size="20%" style="background-color: #8f8">
+                    <div class="content">
+                        This is west<br>sfffs fsdfass csf fdssdf f sd dsf<br>ss<br>dfd<br>fdf<br>
+                    </div>
+                </div>
+                <div class="east" style="background-color: #ff8">
+                    <div class="content">
+                        This is east
+                    </div>
+                </div>
+                <div class="center" style="background-color: #8ff">
+                    <div class="content">
+                        This is center fl sdföj lkjsfah sh fslkjhdfjlkhds f ksdfjdfs kjhdfs jkahklsjjk fds ljsdf jh
+                        fsdlkjhfks
+                        ljhs sfj lkasf kflsjdah sf f f sjcjlfsadfkljsh kjhskjh slkjh lkjhds lkjfh lkhfls kdhsf
+                        sdjkfdsfdsf
+                        slkd fskdhf sjhf sfs adf sjakjs
+                    </div>
+                </div>
+            </div>
+
+            ljhs sfj lkasf kflsjdah sf f f sjcjlfsadfkljsh kjhskjh slkjh lkjhds lkjfh lkhfls kdhsf sdjkfdsfdsf
+            slkd fskdhf sjhf sfs adf sjakjs
+        </div>
+    </div>
+</div>
+<style>
+    html {
+        font-size: 200%;
+    }
+</style>
+<script src="border.js"></script>
+<script>
+    var b1 = borderLayout(document.querySelector('#layout'), function (state) {
+        console.log(state);
+    });
+    var b2 = borderLayout(document.querySelector('#layout2'), function (state) {
+        console.log(state);
+    });
+</script>
+</body>
+</html>
