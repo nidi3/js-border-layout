@@ -1,5 +1,6 @@
 # js-border-layout
-A simple [border layout](https://nidi3.github.io/js-border-layout) with CSS and JS.
+A simple border layout with CSS and JS.
+See [demo](https://nidi3.github.io/js-border-layout).
 
 # Usage
 ````   
