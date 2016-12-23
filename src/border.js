@@ -122,7 +122,7 @@ var borderLayout = function (root, onStateChanged) {
             drag.className = 'drag';
             Object.assign(drag.style, style);
             target.appendChild(drag);
-            var borderWidth = parseInt(getComputedStyle(drag)['border-width']);
+            var borderWidth = parseInt(getComputedStyle(drag)['border-top-width']);
             target.querySelector('.content').style['border' + capital(dragSide)] = 2 * borderWidth + 'px solid transparent';
             drag.addEventListener('mousedown', function (e) {
                 dragging = {
