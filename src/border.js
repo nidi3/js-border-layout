@@ -12,16 +12,16 @@ var borderLayout = function (root, onStateChanged) {
     setInitSize('west', root.offsetWidth);
     setInitSize('east', root.offsetWidth);
     redraw();
-    addDrag('north', {left: '0', bottom: '0', width: '100%', cursor: 'ns-resize'}, function (e) {
+    addDrag('north', 'bottom', {left: '0', bottom: '0', width: '100%', cursor: 'ns-resize'}, function (e) {
         return this.origSize + e.clientY - this.origY;
     });
-    addDrag('south', {left: '0', top: '0', width: '100%', cursor: 'ns-resize'}, function (e) {
+    addDrag('south', 'top', {left: '0', top: '0', width: '100%', cursor: 'ns-resize'}, function (e) {
         return this.origSize - e.clientY + this.origY;
     });
-    addDrag('west', {right: '0', top: '0', height: '100%', cursor: 'ew-resize'}, function (e) {
+    addDrag('west', 'right', {right: '0', top: '0', height: '100%', cursor: 'ew-resize'}, function (e) {
         return this.origSize + e.clientX - this.origX;
     });
-    addDrag('east', {left: '0', top: '0', height: '100%', cursor: 'ew-resize'}, function (e) {
+    addDrag('east', 'left', {left: '0', top: '0', height: '100%', cursor: 'ew-resize'}, function (e) {
         return this.origSize - e.clientX + this.origX;
     });
     root.addEventListener('mousemove', function (e) {
@@ -115,13 +115,15 @@ var borderLayout = function (root, onStateChanged) {
         return elem && parseInt(elem[attr]);
     }
 
-    function addDrag(name, style, sizeFn) {
+    function addDrag(name, dragSide, style, sizeFn) {
         var target = area[name].element;
         if (target && target.classList.contains('resizable')) {
             var drag = document.createElement('div');
             drag.className = 'drag';
             Object.assign(drag.style, style);
             target.appendChild(drag);
+            var borderWidth = parseInt(getComputedStyle(drag)['border-width']);
+            target.querySelector('.content').style['border' + capital(dragSide)] = 2 * borderWidth + 'px solid transparent';
             drag.addEventListener('mousedown', function (e) {
                 dragging = {
                     target: name,
@@ -132,6 +134,10 @@ var borderLayout = function (root, onStateChanged) {
                 dragging.size = sizeFn.bind(dragging);
             });
         }
+    }
+
+    function capital(s) {
+        return s.charAt(0).toUpperCase() + s.substring(1);
     }
 
     function dragEnded(listener) {
