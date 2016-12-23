@@ -48,6 +48,8 @@ The `north`, `east`, `south`, `west`, `center` divs can have
 - `size`, `min-size`, `max-size` attributes to define the initial, minimum and maximum size in `px` or `%`.
 
 # API
+|Action|Code|
+|---|---|
 | Initialize the layout | `var layout = borderLayout(domElement, resizeCallback: function(sizes: Sizes))` |
 | Resize the sections | `layout.resize(sizes: Sizes)` |
 | Hide a section | `layout.hide(section: Section)` |
