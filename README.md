@@ -1,5 +1,5 @@
-# js-grid-layout
-A simple [grid layout](https://nidi3.github.io/js-grid-layout) with CSS and JS.
+# js-border-layout
+A simple [border layout](https://nidi3.github.io/js-border-layout) with CSS and JS.
 
 # Usage
 ````   
